@@ -1,0 +1,29 @@
+<div class="max-w-md mx-auto mt-20 p-6 border rounded shadow-sm">
+  <h1 class="text-2xl font-bold mb-6">Resume Campaign</h1>
+
+  <%= form_with url: session_path, class: "space-y-4" do |form| %>
+    <% if flash[:alert] %>
+      <div class="bg-red-50 text-red-600 p-3 text-sm rounded">
+        <%= flash[:alert] %>
+      </div>
+    <% end %>
+
+    <div>
+      <%= form.label :email_address, class: "block text-sm font-bold mb-1" %>
+      <%= form.email_field :email_address, required: true, autofocus: true, autocomplete: "username", class: "w-full border p-2 rounded" %>
+    </div>
+
+    <div>
+      <%= form.label :password, class: "block text-sm font-bold mb-1" %>
+      <%= form.password_field :password, required: true, autocomplete: "current-password", class: "w-full border p-2 rounded" %>
+    </div>
+
+    <%= form.submit "Access System", class: "w-full bg-black text-white py-2 rounded hover:bg-gray-800 cursor-pointer" %>
+  <% end %>
+
+  <div class="mt-4 text-center text-sm">
+    <%= link_to "Establish new identity", new_registration_path, class: "text-blue-600 underline" %>
+    <span class="mx-2 text-gray-300">|</span>
+    <%= link_to "Forgot password?", new_password_path, class: "text-gray-500 underline" %>
+  </div>
+</div>

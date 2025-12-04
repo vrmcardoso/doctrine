@@ -1,0 +1,71 @@
+- id: 1
+  name: "Older Voters"
+  identity_core: "Stability and legacy"
+  narrative_hook: "Protect what you’ve earned."
+  susceptibility_profile: "Low susceptibility to narrative shifts. High group loyalty."
+  base_dissonance_threshold: 0.5
+  party_lean: ["preservation_pact", "labor_front"]
+
+- id: 2
+  name: "Industrial Workers"
+  identity_core: "Value through labor, betrayed trust"
+  narrative_hook: "You built the nation. We fight for you."
+  susceptibility_profile: "Moderate susceptibility. Low dissonance threshold unless framed as 'common sense'."
+  base_dissonance_threshold: 0.3
+  party_lean: ["labor_front", "homeland_assembly"]
+
+- id: 3
+  name: "Urban Professionals"
+  identity_core: "Identity through success and reason"
+  narrative_hook: "Practical reform. Real results."
+  susceptibility_profile: "High dissonance aversion. Moderate narrative sway if technocratic."
+  base_dissonance_threshold: 0.8
+  party_lean: ["forward_project", "renewal_alliance"]
+
+- id: 4
+  name: "Youth & Students"
+  identity_core: "Justice, identity, belonging"
+  narrative_hook: "Be part of the future. Don’t settle."
+  susceptibility_profile: "Very high narrative susceptibility. Low dissonance tolerance."
+  base_dissonance_threshold: 0.2
+  party_lean: ["renewal_alliance", "forward_project"]
+
+- id: 5
+  name: "Small-Town Residents"
+  identity_core: "Belonging, tradition, visibility"
+  narrative_hook: "They forgot you. We remember."
+  susceptibility_profile: "Moderate-to-high susceptibility to identity-based narratives."
+  base_dissonance_threshold: 0.5
+  party_lean: ["homeland_assembly", "preservation_pact"]
+
+- id: 6
+  name: "Cultural Class"
+  identity_core: "Meaning, authenticity, expression"
+  narrative_hook: "Truth matters. Stories shape power."
+  susceptibility_profile: "High susceptibility to narrative tone. Very low tolerance for hypocrisy."
+  base_dissonance_threshold: 0.1
+  party_lean: ["renewal_alliance", "labor_front"]
+
+- id: 7
+  name: "Legacy Loyalists"
+  identity_core: "Identity fused to party history"
+  narrative_hook: "They stood by us. We’ll stand by them."
+  susceptibility_profile: "Low susceptibility except when betrayal occurs. High group loyalty."
+  base_dissonance_threshold: 0.9
+  party_lean: ["labor_front", "preservation_pact"]
+
+- id: 8
+  name: "Business Class"
+  identity_core: "Control, predictability, deregulation"
+  narrative_hook: "Get the state out of your way."
+  susceptibility_profile: "Low susceptibility to moral framing. High dissonance threshold."
+  base_dissonance_threshold: 0.9
+  party_lean: ["forward_project", "preservation_pact"]
+
+- id: 9
+  name: "Disillusioned Voters"
+  identity_core: "Betrayal, bitterness, anti-identity"
+  narrative_hook: "They all lied. You deserve revenge."
+  susceptibility_profile: "Very high susceptibility to populist frames. Low dissonance threshold."
+  base_dissonance_threshold: 0.2
+  party_lean: ["homeland_assembly", "forward_project"]

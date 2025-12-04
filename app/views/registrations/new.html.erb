@@ -1,0 +1,32 @@
+<div class="max-w-md mx-auto mt-20 p-6 border rounded shadow-sm">
+  <h1 class="text-2xl font-bold mb-6">Start New Campaign</h1>
+  
+  <%= form_with model: @user, url: registration_path, class: "space-y-4" do |form| %>
+    <% if @user.errors.any? %>
+      <div class="bg-red-50 text-red-600 p-3 text-sm rounded">
+        <%= @user.errors.full_messages.to_sentence %>
+      </div>
+    <% end %>
+
+    <div>
+      <%= form.label :email_address, class: "block text-sm font-bold mb-1" %>
+      <%= form.email_field :email_address, required: true, autofocus: true, autocomplete: "username", class: "w-full border p-2 rounded" %>
+    </div>
+
+    <div>
+      <%= form.label :password, class: "block text-sm font-bold mb-1" %>
+      <%= form.password_field :password, required: true, autocomplete: "new-password", class: "w-full border p-2 rounded" %>
+    </div>
+
+    <div>
+      <%= form.label :password_confirmation, "Confirm Password", class: "block text-sm font-bold mb-1" %>
+      <%= form.password_field :password_confirmation, required: true, autocomplete: "new-password", class: "w-full border p-2 rounded" %>
+    </div>
+
+    <%= form.submit "Initialize Protocol", class: "w-full bg-black text-white py-2 rounded hover:bg-gray-800 cursor-pointer" %>
+  <% end %>
+
+  <div class="mt-4 text-center text-sm">
+    <%= link_to "Already have an identity?", new_session_path, class: "text-blue-600 underline" %>
+  </div>
+</div>

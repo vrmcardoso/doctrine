@@ -1,0 +1,44 @@
+- id: 1
+  handle: "forward_project"
+  name: "The Forward Project"
+  description: "Technocratic centrists aiming to fix the system."
+  narrative_style: "Make things work again"
+  identity_engine: "Rational achievers. See themselves as problem-solvers."
+  strengths: "Appeals to cognitive dissonance avoiders who crave internal consistency."
+  weaknesses: "Low self-identity stickiness. Loyal to competence, not you."
+
+- id: 2
+  handle: "labor_front"
+  name: "Labor Front"
+  description: "Legacy industrial party fighting for worker dignity."
+  narrative_style: "A fair deal for those who built this country"
+  identity_engine: "Pride in labor, generational sacrifice."
+  strengths: "High group loyalty and strong nostalgia factor."
+  weaknesses: "Low appeal to narrative-susceptible youth. High vulnerability to contradiction."
+
+- id: 3
+  handle: "preservation_pact"
+  name: "Preservation Pact"
+  description: "Establishment conservatives focusing on order and tradition."
+  narrative_style: "Keep what works. Restore what was lost."
+  identity_engine: "Belonging to a stable, ordered past. Trust in hierarchy."
+  strengths: "High cognitive dissonance tolerance when framed as tradition."
+  weaknesses: "Vulnerable to 'rotting elite' narratives."
+
+- id: 4
+  handle: "homeland_assembly"
+  name: "Homeland Assembly"
+  description: "Right-populists channeling grievance and reclaiming identity."
+  narrative_style: "Take back control"
+  identity_engine: "Victimhood as empowerment. Rage as clarity."
+  strengths: "Narrative virality and emotional simplicity."
+  weaknesses: "Extremely volatile internal beliefs; contradiction tolerance depends on leader charisma."
+
+- id: 5
+  handle: "renewal_alliance"
+  name: "Renewal Alliance"
+  description: "Radical progressive coalition focused on justice."
+  narrative_style: "We owe each other dignity"
+  identity_engine: "Moral purity, collective identity, idealistic realism."
+  strengths: "High loyalty from low-cynicism voters; persuasive with clarity."
+  weaknesses: "Vulnerable to infighting and purity spirals. Weak with pragmatists."

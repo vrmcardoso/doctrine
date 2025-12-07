@@ -62,6 +62,10 @@ module.exports = {
         // Custom glows
         'glow-cyan-sm': '0 0 5px rgba(34, 211, 238, 0.5)',
         'glow-cyan-md': '0 0 15px rgba(34, 211, 238, 0.5)',
+      },
+      dropShadow: {
+        'glow-cyan-sm': '0 0 5px rgba(34, 211, 238, 0.5)',
+        'glow-cyan-md': '0 0 15px rgba(34, 211, 238, 0.5)',
       }
     },
   },

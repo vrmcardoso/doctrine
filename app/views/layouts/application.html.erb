@@ -21,7 +21,7 @@
 
     <%= favicon_link_tag "logo.jpg" %>
 
-    <%= stylesheet_link_tag "tailwind", "data-turbo-track": "reload" %>
+    <%= stylesheet_link_tag "application", "data-turbo-track": "reload" %>
     <%= javascript_importmap_tags %>
   </head>
 
@@ -34,6 +34,8 @@
     <%# REMOVED: The old <nav> and <main container...> wrappers. %>
     <%# The landing page view is designed to be full-screen, so we yield directly into the body. %>
     <%= yield %>
+
+    <%= audio_tag "sample_doctrine_ambient_1.mp3", autoplay: true, loop: true, class: "hidden" %>
 
   </body>
 </html>

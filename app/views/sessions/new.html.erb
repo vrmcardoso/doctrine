@@ -1,29 +1,86 @@
-<div class="max-w-md mx-auto mt-20 p-6 border rounded shadow-sm">
-  <h1 class="text-2xl font-bold mb-6">Resume Campaign</h1>
+<div class="min-h-screen w-full bg-metal-dark bg-brushed-metal flex items-center justify-center p-4 relative overflow-hidden font-sans">
+  <div class="absolute inset-0 bg-[radial-gradient(circle_at_center,_transparent_0%,_rgba(0,0,0,0.8)_100%)] pointer-events-none"></div>
 
-  <%= form_with url: session_path, class: "space-y-4" do |form| %>
-    <% if flash[:alert] %>
-      <div class="bg-red-50 text-red-600 p-3 text-sm rounded">
-        <%= flash[:alert] %>
+  <div class="relative z-10 max-w-md w-full bg-black/90 border-4 border-metal-light rounded-lg shadow-[0_0_50px_rgba(0,0,0,0.8)] overflow-hidden">
+    <div class="absolute inset-0 z-0 pointer-events-none">
+      <div class="absolute inset-0 bg-scanlines opacity-40 mix-blend-overlay"></div>
+      <div class="absolute inset-0 shadow-[inset_0_0_80px_rgba(0,0,0,1)]"></div>
+      <div class="absolute inset-0 bg-cyan-900/20 mix-blend-screen animate-screen-flicker"></div>
+    </div>
+
+    <div class="relative z-20 p-8 flex flex-col">
+      <%= link_to root_path, class: "absolute top-4 left-4 text-xs font-mono uppercase tracking-widest text-cyan-600 hover:text-cyan-400 transition-colors" do %>
+        < Back
+      <% end %>
+      <div class="relative mx-auto mb-8 w-fit text-3xl font-black uppercase" data-controller="glitch">
+        <h1 class="relative z-10 text-transparent bg-clip-text bg-gradient-to-b from-cyan-100 to-cyan-500 drop-shadow-glow-cyan-sm">
+          Log In
+        </h1>
+
+        <!-- Cyan Layers -->
+        <div class="absolute inset-0 z-0 text-transparent bg-clip-text bg-gradient-to-b from-cyan-100 to-cyan-500 mix-blend-screen drop-shadow-glow-cyan-offset-sm opacity-0 transition-opacity duration-75" aria-hidden="true" data-glitch-target="layerCTop">
+          Log In
+        </div>
+        <div class="absolute inset-0 z-0 text-transparent bg-clip-text bg-gradient-to-b from-cyan-100 to-cyan-500 mix-blend-screen drop-shadow-glow-cyan-offset-sm opacity-0 transition-opacity duration-75" aria-hidden="true" data-glitch-target="layerCBottom">
+          Log In
+        </div>
+
+        <!-- Magenta Layers -->
+        <div class="absolute inset-0 z-0 text-transparent bg-clip-text bg-gradient-to-b from-magenta-100 to-magenta-500 mix-blend-screen drop-shadow-glow-magenta-sm opacity-0 transition-opacity duration-75" aria-hidden="true" data-glitch-target="layerMTop">
+          Log In
+        </div>
+        <div class="absolute inset-0 z-0 text-transparent bg-clip-text bg-gradient-to-b from-magenta-100 to-magenta-500 mix-blend-screen drop-shadow-glow-magenta-sm opacity-0 transition-opacity duration-75" aria-hidden="true" data-glitch-target="layerMBottom">
+          Log In
+        </div>
+
+        <!-- Green Layers -->
+        <div class="absolute inset-0 z-0 text-transparent bg-clip-text bg-gradient-to-b from-green-100 to-green-500 mix-blend-screen drop-shadow-glow-green-sm opacity-0 transition-opacity duration-75" aria-hidden="true" data-glitch-target="layerGTop">
+          Log In
+        </div>
+        <div class="absolute inset-0 z-0 text-transparent bg-clip-text bg-gradient-to-b from-green-100 to-green-500 mix-blend-screen drop-shadow-glow-green-sm opacity-0 transition-opacity duration-75" aria-hidden="true" data-glitch-target="layerGBottom">
+          Log In
+        </div>
       </div>
-    <% end %>
 
-    <div>
-      <%= form.label :email_address, class: "block text-sm font-bold mb-1" %>
-      <%= form.email_field :email_address, required: true, autofocus: true, autocomplete: "username", class: "w-full border p-2 rounded" %>
+      <%= form_with url: session_path, class: "space-y-6" do |form| %>
+        <% if flash[:alert] %>
+          <div class="bg-red-900/50 border border-red-500 text-red-200 p-3 text-sm rounded shadow-glow-red-sm">
+            <%= flash[:alert] %>
+          </div>
+        <% end %>
+
+        <div>
+          <%= form.label :email_address, class: "block text-xs font-mono uppercase tracking-widest text-cyan-400 mb-2" %>
+          <%= form.email_field :email_address, required: true, autofocus: true, autocomplete: "username", class: "w-full bg-black/50 border border-cyan-500/30 text-cyan-100 p-3 rounded focus:border-cyan-400 focus:ring-1 focus:ring-cyan-400 focus:outline-none placeholder-cyan-800 transition-all duration-200" %>
+        </div>
+
+        <div>
+          <div class="flex justify-between items-center mb-2">
+            <%= form.label :password, class: "block text-xs font-mono uppercase tracking-widest text-cyan-400" %>
+            <%= link_to "Forgot password?", new_password_path, class: "text-xs font-mono text-cyan-600 hover:text-cyan-400 transition-colors" %>
+          </div>
+          <%= form.password_field :password, required: true, autocomplete: "current-password", class: "w-full bg-black/50 border border-cyan-500/30 text-cyan-100 p-3 rounded focus:border-cyan-400 focus:ring-1 focus:ring-cyan-400 focus:outline-none placeholder-cyan-800 transition-all duration-200" %>
+        </div>
+
+        <div class="pt-4">
+          <%= form.button class: "group relative w-full cursor-pointer bg-transparent border-0 p-0" do %>
+             <div class="absolute inset-0 bg-cyan-400/40 blur-md opacity-40 group-hover:opacity-80 transition-opacity duration-300 rounded"></div>
+             <div class="relative w-full py-4 flex items-center justify-center bg-gradient-to-br from-cyan-600 to-cyan-800 border-2 border-cyan-400 px-4 font-mono text-base leading-none whitespace-nowrap font-bold uppercase tracking-wider text-cyan-100 shadow-glow-cyan-sm group-hover:shadow-glow-cyan-md group-hover:text-white transition-all duration-200 active:scale-95 rounded">
+              [ Access System ]
+            </div>
+          <% end %>
+        </div>
+      <% end %>
+
+      <div class="mt-8 text-center">
+        <%= link_to new_registration_path, class: "group inline-flex items-center gap-2 text-xs font-mono uppercase tracking-widest text-cyan-600 hover:text-cyan-400 transition-colors" do %>
+          <span>> Create new account</span>
+        <% end %>
+      </div>
     </div>
+  </div>
 
-    <div>
-      <%= form.label :password, class: "block text-sm font-bold mb-1" %>
-      <%= form.password_field :password, required: true, autocomplete: "current-password", class: "w-full border p-2 rounded" %>
-    </div>
-
-    <%= form.submit "Access System", class: "w-full bg-black text-white py-2 rounded hover:bg-gray-800 cursor-pointer" %>
-  <% end %>
-
-  <div class="mt-4 text-center text-sm">
-    <%= link_to "Establish new identity", new_registration_path, class: "text-blue-600 underline" %>
-    <span class="mx-2 text-gray-300">|</span>
-    <%= link_to "Forgot password?", new_password_path, class: "text-gray-500 underline" %>
+  <div class="fixed bottom-4 right-4 font-mono text-xs text-cyan-900/60 uppercase">
+    v0.1.0 // EST. 2025
   </div>
 </div>

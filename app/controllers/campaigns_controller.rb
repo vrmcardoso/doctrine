@@ -2,7 +2,9 @@ class CampaignsController < ApplicationController
   # Standard Rails 8 auth is active by default here (no allow_unauthenticated_access)
 
   def index
-    # The "Main Menu" - lists save files
+    if Current.user.campaigns.empty?
+      redirect_to new_campaign_path and return
+    end
     @campaigns = Current.user.campaigns.order(updated_at: :desc)
   end
 
@@ -20,7 +22,7 @@ class CampaignsController < ApplicationController
 
     @campaign = Current.user.campaigns.build(
       title: "#{party.name} Campaign",
-      party_handle: params[:party_handle],
+      archetype_handle: params[:party_handle],
       current_week: 1,
       completed: false,
       state_snapshot: initial_state

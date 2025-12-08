@@ -1,4 +1,102 @@
-<div>
-  <h1 class="font-bold text-4xl">Campaigns#new</h1>
-  <p>Find me in app/views/campaigns/new.html.erb</p>
+<div class="min-h-screen w-full bg-metal-dark bg-brushed-metal flex items-center justify-center p-4 relative overflow-hidden font-sans">
+  <div class="absolute inset-0 bg-[radial-gradient(circle_at_center,_transparent_0%,_rgba(0,0,0,0.8)_100%)] pointer-events-none"></div>
+
+  <div class="relative z-10 max-w-[99%] w-full bg-black/90 border-4 border-metal-light rounded-lg shadow-[0_0_50px_rgba(0,0,0,0.8)] overflow-hidden">
+    <div class="absolute inset-0 z-0 pointer-events-none">
+      <div class="absolute inset-0 bg-scanlines opacity-40 mix-blend-overlay"></div>
+      <div class="absolute inset-0 shadow-[inset_0_0_80px_rgba(0,0,0,1)]"></div>
+      <div class="absolute inset-0 bg-cyan-900/20 mix-blend-screen animate-screen-flicker"></div>
+    </div>
+
+    <div class="relative z-20 p-8 flex flex-col">
+      <div class="relative mx-auto mb-12 w-fit text-3xl font-black uppercase" data-controller="glitch">
+        <h1 class="relative z-10 text-transparent bg-clip-text bg-gradient-to-b from-cyan-100 to-cyan-500 drop-shadow-glow-cyan-sm">
+          Select Your Doctrine
+        </h1>
+
+        <!-- Cyan Layers -->
+        <div class="absolute inset-0 z-0 text-transparent bg-clip-text bg-gradient-to-b from-cyan-100 to-cyan-500 mix-blend-screen drop-shadow-glow-cyan-offset-sm opacity-0 transition-opacity duration-75" aria-hidden="true" data-glitch-target="layerCTop">
+          Select Your Doctrine
+        </div>
+        <div class="absolute inset-0 z-0 text-transparent bg-clip-text bg-gradient-to-b from-cyan-100 to-cyan-500 mix-blend-screen drop-shadow-glow-cyan-offset-sm opacity-0 transition-opacity duration-75" aria-hidden="true" data-glitch-target="layerCBottom">
+          Select Your Doctrine
+        </div>
+
+        <!-- Magenta Layers -->
+        <div class="absolute inset-0 z-0 text-transparent bg-clip-text bg-gradient-to-b from-magenta-100 to-magenta-500 mix-blend-screen drop-shadow-glow-magenta-sm opacity-0 transition-opacity duration-75" aria-hidden="true" data-glitch-target="layerMTop">
+          Select Your Doctrine
+        </div>
+        <div class="absolute inset-0 z-0 text-transparent bg-clip-text bg-gradient-to-b from-magenta-100 to-magenta-500 mix-blend-screen drop-shadow-glow-magenta-sm opacity-0 transition-opacity duration-75" aria-hidden="true" data-glitch-target="layerMBottom">
+          Select Your Doctrine
+        </div>
+
+        <!-- Green Layers -->
+        <div class="absolute inset-0 z-0 text-transparent bg-clip-text bg-gradient-to-b from-green-100 to-green-500 mix-blend-screen drop-shadow-glow-green-sm opacity-0 transition-opacity duration-75" aria-hidden="true" data-glitch-target="layerGTop">
+          Select Your Doctrine
+        </div>
+        <div class="absolute inset-0 z-0 text-transparent bg-clip-text bg-gradient-to-b from-green-100 to-green-500 mix-blend-screen drop-shadow-glow-green-sm opacity-0 transition-opacity duration-75" aria-hidden="true" data-glitch-target="layerGBottom">
+          Select Your Doctrine
+        </div>
+      </div>
+
+      <%= form_with url: campaigns_path, method: :post do |form| %>
+        <% if flash[:alert] %>
+          <div class="bg-red-900/50 border border-red-500 text-red-200 p-3 text-sm rounded shadow-glow-red-sm mb-6 max-w-2xl mx-auto">
+            <%= flash[:alert] %>
+          </div>
+        <% end %>
+
+        <div class="flex flex-wrap justify-center gap-8">
+          <% @parties.each do |party| %>
+            <div class="flex flex-col w-full sm:w-80 bg-black/40 border border-cyan-900/50 p-6 rounded hover:border-cyan-500/50 transition-colors group relative overflow-hidden">
+              <div class="absolute inset-0 bg-gradient-to-b from-transparent to-cyan-900/10 opacity-0 group-hover:opacity-100 transition-opacity pointer-events-none"></div>
+              
+                <div class="w-full aspect-square bg-black/60 mb-4 rounded flex items-center justify-center border border-cyan-900/30 group-hover:border-cyan-500/30 group-hover:bg-black/80 transition-all shadow-inner overflow-hidden relative">
+                  <% if party.handle == 'forward_project' %>
+                    <div class="w-full h-full relative flex items-center justify-center p-4">
+                      <%= image_tag "forward_project_logo.jpg", class: "w-full h-full object-contain", alt: "Forward Project Logo" %>
+                    </div>
+                  <% elsif party.handle == 'labor_front' %>
+                    <div class="w-full h-full relative flex items-center justify-center p-4">
+                      <%= image_tag "labor_front_logo.jpg", class: "w-full h-full object-contain", alt: "Labor Front Logo" %>
+                    </div>
+                  <% elsif party.handle == 'preservation_pact' %>
+                    <div class="w-full h-full relative flex items-center justify-center p-4">
+                      <%= image_tag "preservation_pact_logo.jpg", class: "w-full h-full object-contain", alt: "Preservation Pact Logo" %>
+                    </div>
+                  <% elsif party.handle == 'homeland_assembly' %>
+                    <div class="w-full h-full relative flex items-center justify-center p-4">
+                      <%= image_tag "homeland_assembly_logo.jpg", class: "w-full h-full object-contain", alt: "Homeland Assembly Logo" %>
+                    </div>
+                  <% elsif party.handle == 'renewal_alliance' %>
+                    <div class="w-full h-full relative flex items-center justify-center p-4">
+                      <%= image_tag "renewal_alliance_logo.jpg", class: "w-full h-full object-contain", alt: "Renewal Alliance Logo" %>
+                    </div>
+                  <% else %>
+                      <span class="text-cyan-700 font-mono text-xs tracking-widest group-hover:text-cyan-500 transition-colors">[LOGO]</span>
+                  <% end %>                   
+                </div>
+              
+              <h3 class="text-lg font-bold text-cyan-100 mb-2 text-center leading-tight min-h-[3rem] flex items-center justify-center"><%= party.name %></h3>
+              <p class="text-xs text-cyan-400/70 mb-6 text-center flex-grow font-mono leading-relaxed"><%= party.description %></p>
+              
+              <%= button_tag name: "party_handle", value: party.handle, class: "w-full py-3 px-4 bg-cyan-900/20 border border-cyan-500/50 text-cyan-300 font-mono uppercase text-xs tracking-wider hover:bg-cyan-500/20 hover:text-cyan-100 hover:shadow-glow-cyan-sm transition-all rounded cursor-pointer relative z-10" do %>
+                Select
+              <% end %>
+            </div>
+          <% end %>
+        </div>
+      <% end %>
+
+      <div class="mt-12 text-center border-t border-cyan-900/40 pt-6">
+        <%= button_to session_path, method: :delete, class: "group inline-flex items-center gap-2 text-xs font-mono uppercase tracking-widest text-red-500 hover:text-red-400 transition-colors bg-transparent border-none cursor-pointer" do %>
+          <span>[ System Logoff ]</span>
+        <% end %>
+      </div>
+    </div>
+  </div>
+
+  <div class="fixed bottom-4 right-4 font-mono text-xs text-cyan-900/60 uppercase">
+    v0.1.0 // EST. 2025
+  </div>
 </div>

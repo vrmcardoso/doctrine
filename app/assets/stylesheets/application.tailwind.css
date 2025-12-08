@@ -1,17 +1,6 @@
-@tailwind base;
-@tailwind components;
-@tailwind utilities;
+@config "../../../tailwind.config.js";
+@import "tailwindcss";
 
-@layer utilities {
-    .clip-path-arrow-left {
-        clip-path: polygon(0% 0%, 90% 0%, 100% 50%, 90% 100%, 0% 100%);
-    }
-
-    .clip-path-arrow-mid {
-        clip-path: polygon(0% 0%, 90% 0%, 100% 50%, 90% 100%, 0% 100%, 10% 50%);
-    }
-
-    .clip-path-arrow-right {
-        clip-path: polygon(0% 0%, 100% 0%, 100% 100%, 0% 100%, 10% 50%);
-    }
-}
+@source "../../../app/views/**/*.erb";
+@source "../../../app/helpers/**/*.rb";
+@source "../../../app/javascript/**/*.js";

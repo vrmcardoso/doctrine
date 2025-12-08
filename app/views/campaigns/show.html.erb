@@ -1,4 +1,112 @@
-<div>
-  <h1 class="font-bold text-4xl">Campaigns#show</h1>
-  <p>Find me in app/views/campaigns/show.html.erb</p>
+<div class="min-h-screen w-full bg-metal-dark bg-brushed-metal flex flex-col relative overflow-hidden font-sans">
+  <div class="absolute inset-0 bg-[radial-gradient(circle_at_center,_transparent_0%,_rgba(0,0,0,0.8)_100%)] pointer-events-none"></div>
+
+  <!-- Main Container -->
+  <div class="relative z-10 w-full h-screen flex flex-col">
+    <!-- Background Effects -->
+    <div class="absolute inset-0 z-0 pointer-events-none">
+      <div class="absolute inset-0 bg-scanlines opacity-40 mix-blend-overlay"></div>
+      <div class="absolute inset-0 shadow-[inset_0_0_80px_rgba(0,0,0,1)]"></div>
+      <div class="absolute inset-0 bg-cyan-900/20 mix-blend-screen animate-screen-flicker"></div>
+    </div>
+
+    <!-- Header Section (20% height) -->
+    <header class="relative z-20 bg-black/90 border-b-4 border-metal-light shadow-[0_4px_20px_rgba(0,0,0,0.8)] overflow-hidden" style="height: 20vh; max-height: 20vh;">
+      <div class="h-full flex items-center justify-between px-8 gap-8">
+        
+        <!-- Left: National Flag -->
+        <div class="flex-shrink-0 bg-black/60 border-2 border-cyan-900/50 rounded flex items-center justify-center overflow-hidden relative" style="height: 70%; aspect-ratio: 3/2;">
+          <div class="w-full h-full relative flex items-center justify-center p-2">
+            <%= image_tag "national_flag.jpg", class: "w-full h-full object-contain", style: "object-fit: contain; width: 100%; height: 100%;", alt: "National Flag" %>
+          </div>
+        </div>
+
+        <!-- Center: DOCTRINE Logo + Info Bar -->
+        <div class="flex-1 flex flex-col items-center justify-center gap-1">
+          <!-- DOCTRINE Logo with Glitch Effect -->
+          <div class="relative inline-block text-7xl font-black uppercase" data-controller="glitch">
+            <h1 class="relative z-10 text-7xl text-transparent bg-clip-text bg-gradient-to-b from-cyan-100 to-cyan-500 drop-shadow-glow-cyan-sm">
+              DOCTRINE
+            </h1>
+
+            <!-- Cyan Layers -->
+            <div class="absolute inset-0 z-0 text-7xl text-transparent bg-clip-text bg-gradient-to-b from-cyan-100 to-cyan-500 mix-blend-screen drop-shadow-glow-cyan-offset-sm opacity-0 transition-opacity duration-75" aria-hidden="true" data-glitch-target="layerCTop">
+              DOCTRINE
+            </div>
+            <div class="absolute inset-0 z-0 text-7xl text-transparent bg-clip-text bg-gradient-to-b from-cyan-100 to-cyan-500 mix-blend-screen drop-shadow-glow-cyan-offset-sm opacity-0 transition-opacity duration-75" aria-hidden="true" data-glitch-target="layerCBottom">
+              DOCTRINE
+            </div>
+
+            <!-- Magenta Layers -->
+            <div class="absolute inset-0 z-0 text-7xl text-transparent bg-clip-text bg-gradient-to-b from-magenta-100 to-magenta-500 mix-blend-screen drop-shadow-glow-magenta-sm opacity-0 transition-opacity duration-75" aria-hidden="true" data-glitch-target="layerMTop">
+              DOCTRINE
+            </div>
+            <div class="absolute inset-0 z-0 text-7xl text-transparent bg-clip-text bg-gradient-to-b from-magenta-100 to-magenta-500 mix-blend-screen drop-shadow-glow-magenta-sm opacity-0 transition-opacity duration-75" aria-hidden="true" data-glitch-target="layerMBottom">
+              DOCTRINE
+            </div>
+
+            <!-- Green Layers -->
+            <div class="absolute inset-0 z-0 text-7xl text-transparent bg-clip-text bg-gradient-to-b from-green-100 to-green-500 mix-blend-screen drop-shadow-glow-green-sm opacity-0 transition-opacity duration-75" aria-hidden="true" data-glitch-target="layerGTop">
+              DOCTRINE
+            </div>
+            <div class="absolute inset-0 z-0 text-7xl text-transparent bg-clip-text bg-gradient-to-b from-green-100 to-green-500 mix-blend-screen drop-shadow-glow-green-sm opacity-0 transition-opacity duration-75" aria-hidden="true" data-glitch-target="layerGBottom">
+              DOCTRINE
+            </div>
+          </div>
+
+          <!-- Info Bar -->
+          <div class="flex items-center gap-4 text-cyan-400 font-mono text-xs">
+            <div class="flex items-center gap-1.5">
+              <span class="text-cyan-600 uppercase tracking-wider">Week: </span>
+              <span class="text-cyan-300 font-bold"><%= @state['week'] %></span>
+            </div>
+            <span class="text-cyan-700">|</span>
+            <div class="flex items-center gap-1.5">
+              <span class="text-cyan-600 uppercase tracking-wider">Cash:</span>
+              <span class="text-cyan-300 font-bold">$<%= @state['funds'] %></span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Right: Party Logo -->
+        <div class="flex-shrink-0 bg-black/60 border-2 border-cyan-900/50 rounded flex items-center justify-center overflow-hidden relative" style="height: 70%; aspect-ratio: 1/1;">
+          <% if @campaign.archetype_handle == 'forward_project' %>
+            <div class="w-full h-full relative flex items-center justify-center p-2">
+              <%= image_tag "forward_project_logo.jpg", class: "w-full h-full object-contain", style: "object-fit: contain; width: 100%; height: 100%;", alt: "Forward Project Logo" %>
+            </div>
+          <% elsif @campaign.archetype_handle == 'labor_front' %>
+            <div class="w-full h-full relative flex items-center justify-center p-2">
+              <%= image_tag "labor_front_logo.jpg", class: "w-full h-full object-contain", style: "object-fit: contain; width: 100%; height: 100%;", alt: "Labor Front Logo" %>
+            </div>
+          <% elsif @campaign.archetype_handle == 'preservation_pact' %>
+            <div class="w-full h-full relative flex items-center justify-center p-2">
+              <%= image_tag "preservation_pact_logo.jpg", class: "w-full h-full object-contain", style: "object-fit: contain; width: 100%; height: 100%;", alt: "Preservation Pact Logo" %>
+            </div>
+          <% elsif @campaign.archetype_handle == 'homeland_assembly' %>
+            <div class="w-full h-full relative flex items-center justify-center p-2">
+              <%= image_tag "homeland_assembly_logo.jpg", class: "w-full h-full object-contain", style: "object-fit: contain; width: 100%; height: 100%;", alt: "Homeland Assembly Logo" %>
+            </div>
+          <% elsif @campaign.archetype_handle == 'renewal_alliance' %>
+            <div class="w-full h-full relative flex items-center justify-center p-2">
+              <%= image_tag "renewal_alliance_logo.jpg", class: "w-full h-full object-contain", style: "object-fit: contain; width: 100%; height: 100%;", alt: "Renewal Alliance Logo" %>
+            </div>
+          <% else %>
+            <span class="text-cyan-700 font-mono text-xs tracking-widest">[PARTY]</span>
+          <% end %>
+        </div>
+      </div>
+    </header>
+
+    <!-- Main Panel Section (80% height) -->
+    <main class="relative z-20 flex-1 bg-black/80 overflow-auto">
+      <div class="h-full flex items-center justify-center">
+        <p class="text-cyan-600/50 font-mono text-sm uppercase tracking-widest">[ Main Panel - To Be Implemented ]</p>
+      </div>
+    </main>
+  </div>
+
+  <!-- Version Footer -->
+  <div class="fixed bottom-4 right-4 font-mono text-xs text-cyan-900/60 uppercase z-30">
+    v0.1.0 // EST. 2025
+  </div>
 </div>

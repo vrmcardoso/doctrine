@@ -11,7 +11,7 @@
     </div>
 
     <!-- Header Section (20% height) -->
-    <header class="relative z-20 bg-black/90 border-b-4 border-metal-light shadow-[0_4px_20px_rgba(0,0,0,0.8)] overflow-hidden" style="height: 20vh; max-height: 20vh;">
+    <header class="relative z-20 bg-metal-dark bg-brushed-metal border-b-4 border-metal-light shadow-[0_4px_20px_rgba(0,0,0,0.8)] overflow-hidden" style="height: 20vh; max-height: 20vh;">
       <div class="h-full flex items-center justify-between px-8 gap-8">
         
         <!-- Left: National Flag -->
@@ -98,9 +98,66 @@
     </header>
 
     <!-- Main Panel Section (80% height) -->
-    <main class="relative z-20 flex-1 bg-black/80 overflow-auto">
-      <div class="h-full flex items-center justify-center">
-        <p class="text-cyan-600/50 font-mono text-sm uppercase tracking-widest">[ Main Panel - To Be Implemented ]</p>
+    <main class="relative z-20 flex-1 bg-metal-dark bg-brushed-metal border-4 border-metal-light shadow-[0_0_50px_rgba(0,0,0,0.8)] overflow-hidden">
+      <div class="absolute inset-0 z-0 pointer-events-none">
+        <div class="absolute inset-0 bg-scanlines opacity-40 mix-blend-overlay"></div>
+        <div class="absolute inset-0 shadow-[inset_0_0_80px_rgba(0,0,0,1)]"></div>
+        <div class="absolute inset-0 bg-cyan-900/20 mix-blend-screen"></div>
+      </div>
+
+      <div class="relative z-10 h-full flex flex-col" data-controller="tabs" data-tabs-active-class="text-cyan-100 bg-cyan-900/30 border-cyan-500">
+        <!-- Tabs Navigation -->
+        <div class="relative flex justify-center border-b border-cyan-900/30 bg-black/20 backdrop-blur-sm">
+          <button class="px-8 py-4 font-mono uppercase tracking-widest text-sm transition-all border-b-2 border-transparent text-cyan-600 hover:text-cyan-300 hover:bg-cyan-900/10 outline-none focus:outline-none" 
+                  data-tabs-target="tab" 
+                  data-action="click->tabs#switch">
+            Briefing
+          </button>
+          <button class="px-8 py-4 font-mono uppercase tracking-widest text-sm transition-all border-b-2 border-transparent text-cyan-600 hover:text-cyan-300 hover:bg-cyan-900/10 outline-none focus:outline-none" 
+                  data-tabs-target="tab" 
+                  data-action="click->tabs#switch">
+            Operations
+          </button>
+          <button class="px-8 py-4 font-mono uppercase tracking-widest text-sm transition-all border-b-2 border-transparent text-cyan-600 hover:text-cyan-300 hover:bg-cyan-900/10 outline-none focus:outline-none" 
+                  data-tabs-target="tab" 
+                  data-action="click->tabs#switch">
+            Propaganda
+          </button>
+
+          <!-- End Turn Button -->
+          <div class="absolute right-0 top-0 bottom-0 flex items-center px-6">
+            <button class="bg-amber-500 hover:bg-amber-400 text-black font-black uppercase tracking-widest text-sm px-6 py-2 shadow-[0_0_20px_rgba(245,158,11,0.4)] transition-all hover:shadow-[0_0_30px_rgba(245,158,11,0.6)] hover:scale-105 active:scale-95">
+              End Turn >>
+            </button>
+          </div>
+        </div>
+
+        <!-- Tabs Content -->
+        <div class="flex-1 overflow-auto p-8 relative">
+          <!-- Briefing Tab -->
+          <div data-tabs-target="panel" class="h-full">
+            <h2 class="text-2xl font-bold text-cyan-100 mb-4 font-mono uppercase">> Mission Briefing</h2>
+            <p class="text-cyan-400/80 font-mono leading-relaxed">
+              Current situation analysis and strategic objectives. Review intelligence reports and mission parameters here.
+            </p>
+          </div>
+
+          <!-- Operations Tab -->
+          <div data-tabs-target="panel" class="hidden h-full">
+            <h2 class="text-2xl font-bold text-cyan-100 mb-4 font-mono uppercase">> Active Operations</h2>
+            <p class="text-cyan-400/80 font-mono leading-relaxed">
+              Manage ongoing field operations and deployment of assets. Monitor tactical situations in real-time.
+            </p>
+          </div>
+
+          <!-- Propaganda Tab -->
+          <div data-tabs-target="panel" class="hidden h-full">
+            <h2 class="text-2xl font-bold text-cyan-100 mb-4 font-mono uppercase">> Information Control</h2>
+            <p class="text-cyan-400/80 font-mono leading-relaxed">
+              Disseminate information and manage public perception. Control the narrative across all channels.
+            </p>
+          </div>
+        </div>
       </div>
     </main>
   </div>

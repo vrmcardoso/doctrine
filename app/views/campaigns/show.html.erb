@@ -108,6 +108,16 @@
       <div class="relative z-10 h-full flex flex-col" data-controller="tabs" data-tabs-active-class="text-cyan-100 bg-cyan-900/30 border-cyan-500">
         <!-- Tabs Navigation -->
         <div class="relative flex justify-center border-b border-cyan-900/30 bg-black/20 backdrop-blur-sm">
+          <!-- Navigation Buttons -->
+          <div class="absolute left-0 top-0 bottom-0 flex items-center gap-2 px-6">
+            <%= link_to campaigns_path, class: "bg-cyan-900/50 hover:bg-cyan-800/50 text-cyan-300 hover:text-cyan-100 font-mono uppercase tracking-widest text-xs px-4 py-2 border border-cyan-700/50 shadow-[0_0_10px_rgba(6,182,212,0.2)] transition-all hover:shadow-[0_0_15px_rgba(6,182,212,0.3)] hover:scale-105 active:scale-95" do %>
+              &lt;&lt; Main Menu
+            <% end %>
+            <%= button_to session_path, method: :delete, class: "bg-red-900/50 hover:bg-red-800/50 text-red-300 hover:text-red-100 font-mono uppercase tracking-widest text-xs px-4 py-2 border border-red-700/50 shadow-[0_0_10px_rgba(220,38,38,0.2)] transition-all hover:shadow-[0_0_15px_rgba(220,38,38,0.3)] hover:scale-105 active:scale-95" do %>
+              Logout
+            <% end %>
+          </div>
+
           <button class="px-8 py-4 font-mono uppercase tracking-widest text-sm transition-all border-b-2 border-transparent text-cyan-600 hover:text-cyan-300 hover:bg-cyan-900/10 outline-none focus:outline-none" 
                   data-tabs-target="tab" 
                   data-action="click->tabs#switch">

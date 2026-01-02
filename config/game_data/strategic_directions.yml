@@ -1,0 +1,81 @@
+# Strategic Directions: Narrative Pivots for the Agenda Planning Phase
+# Each direction is a possible strategic pivot that the player can choose
+# Gating: The Agenda phase is locked until one of these is selected and written to active_forecast
+
+- id: 1
+  handle: "populist_pivot"
+  title: "The Populist Pivot"
+  narrative_hook: "Bypass the elites. Speak directly to the people about their grievances."
+  description: "Shift messaging toward outsider grievance narratives. Amplify anger at institutional failures. Focus on direct populist appeals rather than institutional reform."
+  condition: "party_stats.faction_integrity > 0.4"
+  global_modifiers:
+    bots_cost: -0.20  # 20% cheaper bot operations
+    virality_multiplier: 1.5  # 50% more viral spread
+    coherence_penalty: 1.0  # No coherence penalty
+    moral_conditioning_multiplier: 1.2  # 20% faster moral conditioning
+  tags: ["high_risk", "high_reward", "populist"]
+
+- id: 2
+  handle: "institutional_rebuild"
+  title: "Institutional Rebuild"
+  narrative_hook: "We are the adults in the room. Trust us to fix what's broken."
+  description: "Shift toward technocratic, solution-oriented messaging. Focus on competence and institutional reform. Appeal to voters who want stability and problem-solving."
+  condition: "party_stats.narrative_coherence > 0.6"
+  global_modifiers:
+    bots_cost: 0.0  # No change in bot cost
+    virality_multiplier: 0.8  # Less viral (more deliberate)
+    coherence_penalty: -0.3  # 30% improvement in coherence (easier to maintain consistency)
+    moral_conditioning_multiplier: 0.7  # Slower conditioning (rational appeals, not moral)
+  tags: ["moderate", "stable", "institutional"]
+
+- id: 3
+  handle: "radical_moral_clarity"
+  title: "Radical Moral Clarity"
+  narrative_hook: "This is a moral choice, not a policy debate. Choose sides."
+  description: "Move toward moral absolutism and identity-based framing. Paint politics as a clear moral battle between right and wrong. Demand absolute loyalty and commitment."
+  condition: "true"  # Always available as an option
+  global_modifiers:
+    bots_cost: 0.1  # 10% more expensive (moral messaging is resource-intensive)
+    virality_multiplier: 1.3  # 30% more viral
+    coherence_penalty: 1.5  # 50% harder to maintain coherence (moral absolutism creates brittleness)
+    moral_conditioning_multiplier: 2.0  # 100% faster moral conditioning (powerful tool)
+  tags: ["high_risk", "moral", "extreme"]
+
+- id: 4
+  handle: "identity_consolidation"
+  title: "Identity Consolidation"
+  narrative_hook: "Strengthen who we are. Make our base unshakeable."
+  description: "Focus on coalition identity and in-group bonds. Invest heavily in strengthening base loyalty and group identity. Less concerned with growth, more with retention."
+  condition: "party_stats.faction_integrity > 0.5"
+  global_modifiers:
+    bots_cost: -0.10  # 10% cheaper
+    virality_multiplier: 0.9  # Slightly less viral
+    coherence_penalty: 0.8  # 20% improvement in coherence (focused messaging)
+    moral_conditioning_multiplier: 1.4  # 40% faster (identity is moral)
+  tags: ["consolidation", "defensive", "stable"]
+
+- id: 5
+  handle: "chaos_strategy"
+  title: "Chaos Strategy"
+  narrative_hook: "The system is broken. Only we understand how to break it further—strategically."
+  description: "Embrace contradiction and narrative ambiguity. Appeal to multiple groups with different messages. Let the incoherence become the message (everyone finds what they want to find)."
+  condition: "party_stats.faction_integrity > 0.6"
+  global_modifiers:
+    bots_cost: -0.30  # 30% cheaper (less coordination needed)
+    virality_multiplier: 1.7  # 70% more viral (people spread conflicting messages to different groups)
+    coherence_penalty: 2.0  # 100% harder to maintain coherence (intentionally incoherent)
+    moral_conditioning_multiplier: 0.5  # Much slower (moral conditioning requires consistency)
+  tags: ["chaos", "dangerous", "high_reward"]
+
+- id: 6
+  handle: "defensive_consolidation"
+  title: "Defensive Consolidation"
+  narrative_hook: "They're coming for us. We need to protect what we've built."
+  description: "Move toward defensive messaging. Focus on protecting your base from attacks and external threats. Hunker down and strengthen internal bonds."
+  condition: "party_stats.narrative_coherence < 0.7"
+  global_modifiers:
+    bots_cost: 0.05  # 5% more expensive (defensive messaging is detailed)
+    virality_multiplier: 0.7  # Much less viral (defensive, not expansionist)
+    coherence_penalty: 0.6  # 40% improvement in coherence (clear narrative of protection)
+    moral_conditioning_multiplier: 1.1  # 10% faster (moral defense is compelling)
+  tags: ["defensive", "stable", "crisis_response"]

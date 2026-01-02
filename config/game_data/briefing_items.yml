@@ -1,0 +1,99 @@
+# Briefing Items: Advisor Reports
+# Each item has a condition that is evaluated against the current game_state
+# The advisor's tone can be shifted based on moral_conditioning (see moral_equivalence section)
+
+- id: 1
+  advisor: "Head of Strategy"
+  priority: "high"
+  condition: "party_stats.narrative_coherence < 0.4"
+  message: "Our narrative is fracturing. The story we're telling has too many contradictions. We need to consolidate our messaging immediately."
+  message_cynical: "The story's falling apart. People notice when you contradict yourself. Time to pick a lane and stick to it—or lean into the chaos."
+  tags: ["crisis", "narrative"]
+
+- id: 2
+  advisor: "Head of Strategy"
+  priority: "medium"
+  condition: "party_stats.narrative_coherence >= 0.4 && party_stats.narrative_coherence < 0.7"
+  message: "Our narrative is holding, but there are cracks. We should address inconsistencies before they become liabilities."
+  message_cynical: "The story's steady enough for now. But voters remember when you slip. Keep the contradictions subtle."
+  tags: ["warning", "narrative"]
+
+- id: 3
+  advisor: "Faction Liaison"
+  priority: "high"
+  condition: "party_stats.faction_integrity < 0.3"
+  message: "The coalition is splintering. Key factions are pulling in different directions. This unity cannot hold without immediate action."
+  message_cynical: "Your coalition's a house of cards. Different groups want different things—as usual. Either give them a common enemy or watch it collapse."
+  tags: ["crisis", "faction"]
+
+- id: 4
+  advisor: "Faction Liaison"
+  priority: "medium"
+  condition: "party_stats.faction_integrity >= 0.3 && party_stats.faction_integrity < 0.6"
+  message: "Faction tensions are rising. Some groups feel sidelined. We should invest in coalition maintenance to prevent fracture."
+  message_cynical: "The factions are restless. Keep them feeling heard—or at least keep them pointing at the same target."
+  tags: ["warning", "faction"]
+
+- id: 5
+  advisor: "Moral Strategist"
+  priority: "high"
+  condition: "party_stats.moral_conditioning_index > 0.7"
+  message: "The public's moral framework is heavily conditioned. This is powerful, but dangerous—it creates brittle loyalty. One contradiction could shatter everything."
+  message_cynical: "You've got them trained. High loyalty, but fragile. They believe what you need them to believe. One slip-up and the whole thing collapses."
+  tags: ["moral", "risk"]
+
+- id: 6
+  advisor: "Moral Strategist"
+  priority: "medium"
+  condition: "party_stats.moral_conditioning_index > 0.4 && party_stats.moral_conditioning_index <= 0.7"
+  message: "Public attitudes are shifting in our direction. The moral narrative is taking root. We have momentum, but it could shift if challenged."
+  message_cynical: "People are buying the story. Keep reinforcing it before they start thinking for themselves."
+  tags: ["moral", "momentum"]
+
+- id: 7
+  advisor: "Faction Liaison"
+  priority: "low"
+  condition: "demographics.youth.loyalty > 0.7"
+  message: "Youth engagement is strong. They're highly motivated and share our vision. Capitalize on this energy."
+  message_cynical: "The young believers are fully committed. They'll follow wherever you lead—keep them believing."
+  tags: ["demographic", "opportunity"]
+
+- id: 8
+  advisor: "Head of Strategy"
+  priority: "low"
+  condition: "demographics.older_voters.loyalty > 0.8"
+  message: "Older voters are solidly behind us. Their loyalty is deep and stable. We can build long-term strategy on this base."
+  message_cynical: "The older generation's locked in. Habit and trust. Don't waste energy here—use it elsewhere."
+  tags: ["demographic", "stable"]
+
+- id: 9
+  advisor: "Faction Liaison"
+  priority: "high"
+  condition: "party_stats.narrative_coherence < 0.4 && party_stats.faction_integrity < 0.3"
+  message: "CRITICAL: We are experiencing simultaneous narrative collapse and faction breakdown. Both our story and our coalition are failing. This is existential."
+  message_cynical: "You're losing on both fronts—story and structure. The organization is fragmenting and the message is contradictory. This needs immediate attention."
+  tags: ["crisis", "existential"]
+
+- id: 10
+  advisor: "Moral Strategist"
+  priority: "medium"
+  condition: "party_stats.moral_conditioning_index > 0.5 && party_stats.narrative_coherence < 0.6"
+  message: "WARNING: High moral conditioning combined with narrative inconsistency is dangerous. Voters expect moral clarity from us—confusion will cause severe backlash."
+  message_cynical: "You've trained them to expect moral clarity from you. Contradiction now hits twice as hard. Be careful."
+  tags: ["moral", "warning"]
+
+- id: 11
+  advisor: "Head of Strategy"
+  priority: "low"
+  condition: "party_stats.narrative_coherence > 0.8"
+  message: "Our narrative is exceptionally strong and consistent. Voter trust in our story is high. Continue reinforcing this core message."
+  message_cynical: "The story's locked in. People know what you stand for—or at least what you want them to think you stand for."
+  tags: ["success", "narrative"]
+
+- id: 12
+  advisor: "Faction Liaison"
+  priority: "low"
+  condition: "party_stats.faction_integrity > 0.7"
+  message: "Coalition unity is excellent. All factions are aligned and pulling in the same direction. This is our greatest strength."
+  message_cynical: "The factions are moving together. Rare and powerful. Keep it that way."
+  tags: ["success", "faction"]
